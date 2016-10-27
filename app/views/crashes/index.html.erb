@@ -1,14 +1,67 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Crashes</h1>
+<h1>Profile Page</h1>
+
+<h2>Your Crash Requests</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Item for exchange</th>
-      <th>Host</th>
       <th>Crasher</th>
+      <th>Date</th>
+      <th>Crasher Offer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pending_crashes.each do |crash| %>
+      <tr>
+        <td><%= crash.crasher_id %></td>
+        <td><%= crash.date %></td>
+        <td><%= crash.item_for_exchange %></td>
+        <td><%= link_to 'Show', crash %></td>
+        <td><%= link_to 'Edit', edit_crash_path(crash) %></td>
+        <td><%= link_to 'Destroy', crash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Hosting Requests</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Host</th>
+      <th>Date</th>
+      <th>Crasher Offer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requested_crashes.each do |crash| %>
+      <tr>
+        <td><%= crash.host_id %></td>
+        <td><%= crash.date %></td>
+        <td><%= crash.item_for_exchange %></td>
+        <td><%= link_to 'Show', crash %></td>
+        <td><%= link_to 'Edit', edit_crash_path(crash) %></td>
+        <td><%= link_to 'Destroy', crash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Your Crashes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Host</th>
+      <th>Date</th>
+      <th>Your Exchange</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +69,9 @@
   <tbody>
     <% @crashes.each do |crash| %>
       <tr>
+        <td><%= crash.host_id %></td>
         <td><%= crash.date %></td>
         <td><%= crash.item_for_exchange %></td>
-        <td><%= crash.host_id %></td>
-        <td><%= crash.crasher_id %></td>
         <td><%= link_to 'Show', crash %></td>
         <td><%= link_to 'Edit', edit_crash_path(crash) %></td>
         <td><%= link_to 'Destroy', crash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,3 +83,29 @@
 <br>
 
 <%= link_to 'New Crash', new_crash_path %>
+
+<h2>Your Hostings</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Crasher</th>
+      <th>Date</th>
+      <th>Crasher Offer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hosted_crashes.each do |hosting| %>
+      <tr>
+        <td><%= hosting.crasher_id %></td>
+        <td><%= hosting.date %></td>
+        <td><%= hosting.item_for_exchange %></td>
+        <td><%= link_to 'Show', crash %></td>
+        <td><%= link_to 'Edit', edit_crash_path(crash) %></td>
+        <td><%= link_to 'Destroy', crash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
