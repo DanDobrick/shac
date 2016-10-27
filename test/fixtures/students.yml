@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  devise_id: 1
+  is_crasher: false
+  is_host: false
+  school: MyString
+  crashable?: false
+
+two:
+  first_name: MyString
+  last_name: MyString
+  devise_id: 1
+  is_crasher: false
+  is_host: false
+  school: MyString
+  crashable?: false
