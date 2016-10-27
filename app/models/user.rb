@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validate :student_email_address
+  has_one :student, foreign_key: :devise_id
 
   private
 

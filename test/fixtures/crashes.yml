@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-10-27 15:20:29
+  item_for_exchange: MyString
+  host_id: 1
+  crasher_id: 1
+
+two:
+  date: 2016-10-27 15:20:29
+  item_for_exchange: MyString
+  host_id: 1
+  crasher_id: 1
