@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @crash.date %>
+</p>
+
+<p>
+  <strong>Item for exchange:</strong>
+  <%= @crash.item_for_exchange %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @crash.host_id %>
+</p>
+
+<p>
+  <strong>Crasher:</strong>
+  <%= @crash.crasher_id %>
+</p>
+
+<%= link_to 'Edit', edit_crash_path(@crash) %> |
+<%= link_to 'Back', crashes_path %>
