@@ -14,7 +14,7 @@
   <strong>Host:</strong>
   <%= @crash.host.full_name %> 
   <% if @crash.host_id != current_user.id %>
-    (<%= link_to "View Profile", student_path(@crash.host) %>)
+    (<%= link_to "View Profile", student_info_path(@crash.host) %>)
   <% end %>
 </p>
 
@@ -22,7 +22,7 @@
   <strong>Crasher:</strong>
   <%= @crash.crasher.full_name %> 
   <% if @crash.crasher_id != current_user.id %>
-    (<%= link_to "View Profile", student_path(@crash.crasher) %>)
+    (<%= link_to "View Profile", student_info_path(@crash.crasher) %>)
   <% end %>
 </p>
 

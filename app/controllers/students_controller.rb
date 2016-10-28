@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :info]
 
   # GET /students
   # GET /students.json
@@ -7,20 +7,28 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
+  def info
+    
+  end
+
   # GET /students/1
   # GET /students/1.json
   def show
-    @crashes = Crash.where(crasher_id: current_user.id)
-    @requested_crashes = Crash.where(crasher_id: current_user.id, accepted: false)
-    @hostings = Crash.where(host_id: current_user.id, accepted: true)
-    @pending_hostings = Crash.where(host_id: current_user.id, accepted: false)
-    if @student.is_host
-      @unrated_crashes = @student.unreviewed_crashes
-    elsif @student.is_crasher
-      @potential_crashes = Student.where(hosting_zip: @student.zip, is_host: true, crashable: true)
+    if current_user.id != @student.id
+      redirect_to student_path(current_user.id)
     else
-      sign_out(current_user)
-      redirect_to root_path
+      @crashes = Crash.where(crasher_id: current_user.id)
+      @requested_crashes = Crash.where(crasher_id: current_user.id, accepted: false)
+      @hostings = Crash.where(host_id: current_user.id, accepted: true)
+      @pending_hostings = Crash.where(host_id: current_user.id, accepted: false)
+      if @student.is_host
+        @unrated_crashes = @student.unreviewed_crashes
+      elsif @student.is_crasher
+        @potential_crashes = Student.where(hosting_zip: @student.zip, is_host: true, crashable: true)
+      else
+        sign_out(current_user)
+        redirect_to root_path
+      end
     end
   end
 
@@ -62,6 +70,7 @@ class StudentsController < ApplicationController
       end
     end
   end
+
 
   # DELETE /students/1
   # DELETE /students/1.json
