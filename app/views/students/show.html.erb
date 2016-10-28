@@ -4,7 +4,7 @@
     <h1>Is your <%= @student.crashable_type %> available?</h1>
     <%= form_for(@student) do |f| %>
       <div class="field">
-        <%= f.label :crashable, "#{@student.crashable_type} Available?"%><br>
+        <%= f.label :crashable, "#{@student.crashable_type} Available?"%>
         <%= f.check_box :crashable %>
       </div>
       <div class="actions">
@@ -13,6 +13,7 @@
     <% end %>
     <% if @unrated_crashes != [] %>
       <h1>Unrated Crashes</h1>
+      <p>Please rate your experience with the following crashers:</p>
       <% @unrated_crashes.each do |crash| %>
         <ul>
           <li><%= crash.crasher.full_name %> crashed at your place on <%= crash.date.strftime('%x') %></li>
