@@ -1,5 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<% if @student.is_host %>
+
+  <h1>Unrated Crashes</h1>
+  <% @unrated_crashes.each do |crash| %>
+    <ul>
+      <li>Date: <%= crash.date %></li>
+      <li>Trade: <%= crash.item_for_exchange %></li>
+      <li>Host: <%= crash.host %></li>
+      <li>Crasher: <%= crash.crasher %></li>
+    </ul>
+  <% end %>
+<% end %>
+<!-- 
 <p>
   <strong>First name:</strong>
   <%= @student.first_name %>
@@ -33,7 +46,7 @@
 <p>
   <strong>Crashable?:</strong>
   <%= @student.crashable? %>
-</p>
+</p> -->
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
