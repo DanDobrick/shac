@@ -9,11 +9,12 @@
 <body>
 
 <nav role="navigation">
-  <ul id="js-navigation-menu" class="navigation-menu show">
-    <li class='nav-link'><a href='/'>Home</a></li>
+  <ul>
+    <li><a href='/'>Home</a></li>
     <% if user_signed_in? %>
+      <li><%= link_to('Dashboard', student_path(Student.find(current_user.student.id)))%></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-      <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
+      <li><%= link_to 'Edit Profile', edit_student_path(Student.find(current_user.student.id)) %></li>
     <% else %>
       <li><%= link_to('Register', new_user_registration_path)%></li>
       <li><%= link_to('Login', new_user_session_path)  %></li>
@@ -24,7 +25,8 @@
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-<%= yield %>
-
+<div class="container">
+  <%= yield %>
+</div>
 </body>
 </html>

@@ -10,6 +10,13 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    if @student.is_host
+      @unrated_crashes = @student.unreviewed_crashes
+    elsif @student.is_crasher
+    else
+      sign_out(current_user)
+      redirect_to root_path
+    end
   end
 
   # GET /students/new

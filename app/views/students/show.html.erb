@@ -1,39 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @student.first_name %>
-</p>
+<% if @student.is_host %>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @student.last_name %>
-</p>
+  <h1>Unrated Crashes</h1>
+  <% @unrated_crashes.each do |crash| %>
+  <ul>
+    <li><%= crash.crasher.full_name %> crashed at your place on <%= crash.date.strftime('%x') %></li>
+    <li>They offered you the following: <%= crash.item_for_exchange %></li>
+    <li><%= link_to 'Click here to review this crash', new_review_path(crash: crash.id)%> </li>
+    </ul>
 
-<p>
-  <strong>Devise:</strong>
-  <%= @student.devise_id %>
-</p>
-
-<p>
-  <strong>Is crasher:</strong>
-  <%= @student.is_crasher %>
-</p>
-
-<p>
-  <strong>Is host:</strong>
-  <%= @student.is_host %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @student.school %>
-</p>
-
-<p>
-  <strong>Crashable?:</strong>
-  <%= @student.crashable? %>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
+  <% end %>
+  
+<% end %>
 <%= link_to 'Back', students_path %>
