@@ -27,8 +27,8 @@
     <% else %>
 
       <li><div class="userView">
-        <a href="#!name"><span class="black-text name"><%= current_user.student.first_name + " " + current_user.student.last_name %></span></a>
-        <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
+        <a href="<%= student_path(Student.find(current_user.student.id)) %>"><span class="black-text name"><%= current_user.student.first_name + " " + current_user.student.last_name %></span></a>
+        <a href="<%= student_path(Student.find(current_user.student.id)) %>"><span class="black-text email"><%= current_user.email %></span></a>
       </div></li>
 
       <li><%= link_to 'Dashboard', student_path(Student.find(current_user.student.id)), class: "waves-effect" %></li>
@@ -41,11 +41,12 @@
       <li><%= link_to 'Groups', '#', class: "waves-effect" %></li>
       <li><%= link_to 'Events', '#', class: "waves-effect" %></li>
       <li><div class="divider"></div></li>
-      <li><%= link_to 'Edit Profile', edit_student_path(Student.find(current_user.student.id)), class: "waves-effect" %></li>
+      <li><div class="divider"></div></li>
       <li><%= link_to 'My Friends', '#', class: "waves-effect" %></li>
       <li><%= link_to 'My Events', '#', class: "waves-effect" %></li>
       <li><%= link_to 'My Groups', '#', class: "waves-effect" %></li>
       <li><div class="divider"></div></li>
+      <li><%= link_to 'Edit Profile', edit_student_path(Student.find(current_user.student.id)), class: "waves-effect" %></li>
       <li><%= link_to 'Help', '#', class: "waves-effect" %></li>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     <% end %>

@@ -21,6 +21,10 @@
   padding: 3em;
 }
 
+.home-pg {
+  text-align: center;
+}
+
 .home-img {
 	max-width: 100%;
 }
