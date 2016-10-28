@@ -10,9 +10,14 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @crashes = Crash.where(crasher_id: current_user.id)
+    @requested_crashes = Crash.where(crasher_id: current_user.id, accepted: false)
+    @hostings = Crash.where(host_id: current_user.id, accepted: true)
+    @pending_hostings = Crash.where(host_id: current_user.id, accepted: false)
     if @student.is_host
       @unrated_crashes = @student.unreviewed_crashes
     elsif @student.is_crasher
+      @potential_crashes = Student.where(hosting_zip: @student.zip, is_host: true, crashable: true)
     else
       sign_out(current_user)
       redirect_to root_path
@@ -76,6 +81,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :devise_id, :is_crasher, :is_host, :school, :crashable)
+      params.require(:student).permit(:first_name, :last_name, :devise_id, :is_crasher, :is_host, :school, :crashable, :zip, :crashable_type)
     end
 end

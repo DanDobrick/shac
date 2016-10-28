@@ -24,3 +24,15 @@
 .home-img {
 	max-width: 100%;
 }
+
+.left-panel{
+  display: inline-block;
+  vertical-align: text-top;
+  width: 45%;
+}
+
+.right-panel{
+  display: inline-block;
+  vertical-align: text-top;
+  width: 45%;
+}
