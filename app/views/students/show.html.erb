@@ -21,4 +21,16 @@
   <% end %>
 <% end %>
 
+<h1>Places to stay in your Area</h1>
+
+<% if @potential_crashes %>
+  <ul>
+    <% @potential_crashes.each do |host| %>
+      <li><%= host.first_name %> has a <%= host.crashable_type %> for you to stay on</li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No Potential crashes in your area! Invite your friends!</p>
+<% end %>
+
 <%= link_to 'Back', students_path %>
