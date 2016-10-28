@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    @review = Review.new(crash_id: params[:crash].to_i)
+    @crash = Crash.find(params[:crash].to_i)
   end
 
   # GET /reviews/1/edit
@@ -25,7 +26,7 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-
+    binding.pry
     respond_to do |format|
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }

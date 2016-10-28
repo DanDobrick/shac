@@ -7,7 +7,7 @@
   <ul>
     <li><%= crash.crasher.full_name %> crashed at your place on <%= crash.date.strftime('%x') %></li>
     <li>They offered you the following: <%= crash.item_for_exchange %></li>
-    <li>Click here to review this crash:</li>
+    <li><%= link_to 'Click here to review this crash', new_review_path(crash: crash.id)%> </li>
     </ul>
 
   <% end %>

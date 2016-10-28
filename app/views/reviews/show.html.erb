@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Crash:</strong>
-  <%= @review.crash_id %>
+  <strong>Crash Date:</strong>
+  <%= @review.crash.date.strftime('%x') %>
 </p>
 
 <p>
-  <strong>Review:</strong>
-  <%= @review.review_id %>
+  <strong>Crasher Name:</strong>
+  <%= @review.crash.crasher.full_name %>
 </p>
 
 <p>

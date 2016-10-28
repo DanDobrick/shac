@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
+    <%= f.hidden_field :crash_id %>
+
   <div class="field">
-    <%= f.label :crash_id %><br>
-    <%= f.number_field :crash_id %>
+    <%= f.label :rating, "How would you rate #{@crash.crasher.first_name} as a guest?" %><br>
+    <%= f.number_field :rating , max: 5%>(out of 5)
   </div>
   <div class="field">
-    <%= f.label :review_id %><br>
-    <%= f.number_field :review_id %>
+    <%= f.label :review_text, "Tell us some more about #{@crash.crasher.first_name}\'s stay." %><br>
+    <%= f.text_area :review_text, rows: 15, cols: 50 %>
   </div>
-  <div class="field">
-    <%= f.label :review_text %><br>
-    <%= f.text_field :review_text %>
-  </div>
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
