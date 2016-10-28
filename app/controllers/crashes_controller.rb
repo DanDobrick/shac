@@ -48,9 +48,12 @@ class CrashesController < ApplicationController
   # PATCH/PUT /crashes/1
   # PATCH/PUT /crashes/1.json
   def update
+    if params[:crash][:accepted]
+      @crash.update_attributes(accepted: params[:crash][:accepted])
+    end
     respond_to do |format|
       if @crash.update(crash_params)
-        format.html { redirect_to @crash, notice: 'Crash was successfully updated.' }
+        format.html { redirect_to crashes_path, notice: 'Crash was successfully updated.' }
         format.json { render :show, status: :ok, location: @crash }
       else
         format.html { render :edit }
