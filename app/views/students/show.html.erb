@@ -2,7 +2,7 @@
 
 <div class='left-panel'>
   <% if @student.is_host %>
-    <h1>Is your <%= @student.crashable_type %> available?</h1>
+    <h3>Is your <%= @student.crashable_type %> available?</h3>
     <%= form_for(@student) do |f| %>
       <div class="field">
         <%= f.check_box :crashable, class: "cyan accent-2" %>
@@ -13,7 +13,7 @@
       </div>
     <% end %>
     <% if @unrated_crashes != [] %>
-      <h1>Unrated Crashes</h1>
+      <h3>Unrated Crashes</h3>
       <p>Please rate your experience with the following crashers:</p>
       <% @unrated_crashes.each do |crash| %>
         <ul>
@@ -25,7 +25,7 @@
     <% end %>
   <% end %>
 
-  <h1>Places to stay in <%= @student.zip %></h1>
+  <h3>Places to stay in <%= @student.zip %></h3>
   <% if @potential_crashes %>
     <ul>
       <% @potential_crashes.each do |host| %>
@@ -35,7 +35,7 @@
   <% else %>
     <p>No Potential crashes in your area! Invite your friends or search a new area!</p>
   <% end %>
-  <h2>Search a different Zip Code</h2>
+  <h4>Search a different Zip Code</h4>
   <%= form_for(@student) do |f| %>
       <div class="field">
         <%= f.label :zip, "Enter Zip Code below"%><br>
