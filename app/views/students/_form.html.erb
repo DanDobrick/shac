@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+      
   <div class="field">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -27,6 +27,10 @@
   <div class="field">
     <%= f.label :is_host %><br>
     <%= f.check_box :is_host %>
+  </div>
+  <div class="field">
+    <%= f.label :crashable_type, 'If you are a host, what sleeping arrangement do you have to offer? (ex \'bedroom\', \'Couch\' etc)' %><br>
+    <%= f.text_field :crashable_type %>
   </div>
   <div class="field">
     <%= f.label :school %><br>
