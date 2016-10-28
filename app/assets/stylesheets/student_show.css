@@ -1,0 +1,12 @@
+.left-panel{
+  margin-right: 2em;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 45%;
+}
+.right-panel{
+  margin-left: 2em;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 45%;
+}

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, autofocus: true %>
   </div>
     <%= hidden_field_tag 'student[devise_id]', current_user.id %>
   <div class="field">
@@ -21,12 +21,12 @@
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :is_crasher %><br>
     <%= f.check_box :is_crasher %>
+    <%= f.label :is_crasher %><br>
   </div>
   <div class="field">
-    <%= f.label :is_host %><br>
     <%= f.check_box :is_host %>
+    <%= f.label :is_host %><br>
   </div>
   <div class="field">
     <%= f.label :crashable_type, 'If you are a host, what sleeping arrangement do you have to offer? (ex \'bedroom\', \'Couch\' etc)' %><br>
@@ -45,6 +45,6 @@
     <%= f.number_field :hosting_zip %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Student", class: "cyan accent-2 waves-effect waves-light btn black-text"  %>
   </div>
 <% end %>

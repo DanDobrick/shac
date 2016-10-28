@@ -1,0 +1,22 @@
+<h2>User: <%= @student.full_name %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number of Crashes</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @student.crashes.count %></td>
+      <td><%= @student.average_crasher_rating %></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Back", student_path(current_user) %>
+

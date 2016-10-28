@@ -1,18 +1,20 @@
 <p id="notice"><%= notice %></p>
+
 <div class='left-panel'>
   <% if @student.is_host %>
     <h1>Is your <%= @student.crashable_type %> available?</h1>
     <%= form_for(@student) do |f| %>
       <div class="field">
+        <%= f.check_box :crashable, class: "cyan accent-2" %>
         <%= f.label :crashable, "#{@student.crashable_type} Available?"%><br>
-        <%= f.check_box :crashable %>
       </div>
       <div class="actions">
-        <%= f.submit "Update Availability" %>
+        <%= f.submit "Update Availability", class: "cyan accent-2 waves-effect btn black-text" %>
       </div>
     <% end %>
     <% if @unrated_crashes != [] %>
       <h1>Unrated Crashes</h1>
+      <p>Please rate your experience with the following crashers:</p>
       <% @unrated_crashes.each do |crash| %>
         <ul>
           <li><%= crash.crasher.full_name %> crashed at your place on <%= crash.date.strftime('%x') %></li>
@@ -40,7 +42,7 @@
         <%= f.number_field :zip %>
       </div>
       <div class="actions">
-        <%= f.submit "Search" %>
+        <%= f.submit "Search", class: "cyan accent-2 waves-effect btn black-text" %>
       </div>
   <% end %>
 </div>

@@ -26,6 +26,7 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
+    @review.assign_attributes(reviewer_id: current_user.id, reviewee_id: assign_reviewee)
     respond_to do |format|
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
@@ -70,5 +71,13 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:crash_id, :review_id, :review_text, :rating)
+    end
+
+    def assign_reviewee
+      if current_user.id == crash.host_id
+        return crash.crasher_id
+      elsif current_user.id == crash.crasher_id
+        return crash.host_id
+      end
     end
 end
