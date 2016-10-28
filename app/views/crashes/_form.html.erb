@@ -1,7 +1,7 @@
 <%= form_for(@crash) do |f| %>
   <% if @crash.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@crash.errors.count, "error") %> prohibited this crash from being saved:</h2>
+      <h3><%= pluralize(@crash.errors.count, "error") %> prohibited this crash from being saved:</h3>
 
       <ul>
       <% @crash.errors.full_messages.each do |message| %>
