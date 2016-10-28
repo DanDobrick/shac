@@ -1,44 +1,52 @@
 <p id="notice"><%= notice %></p>
-
-<% if @student.is_host %>
-  <h1>Is your <%= @student.crashable_type %> available?</h1>
-  <%= form_for(@student) do |f| %>
-    <div class="field">
-      <%= f.label :crashable, "#{@student.crashable_type} Available?"%><br>
-      <%= f.check_box :crashable %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Update Availability" %>
-    </div>
-  <% end %>
-  <h1>Unrated Crashes</h1>
-  <% @unrated_crashes.each do |crash| %>
-    <ul>
-      <li><%= crash.crasher.full_name %> crashed at your place on <%= crash.date.strftime('%x') %></li>
-      <li>They offered you the following: <%= crash.item_for_exchange %></li>
-      <li><%= link_to 'Click here to review this crash', new_review_path(crash: crash.id)%> </li>
-    </ul>
-  <% end %>
-<% end %>
-
-<h1>Places to stay in <%= @student.zip %></h1>
-<%= form_for(@student) do |f| %>
-    <div class="field">
-      <%= f.label :zip, "Search a Different Zip"%><br>
-      <%= f.number_field :zip %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Search different zipcode" %>
-    </div>
-<% end %>
-<% if @potential_crashes %>
-  <ul>
-    <% @potential_crashes.each do |host| %>
-      <li><%= host.first_name %> has a <%= host.crashable_type %> in <%= @student.zip %>! Click here to find out more!</li>
+<div class='left-panel'>
+  <% if @student.is_host %>
+    <h1>Is your <%= @student.crashable_type %> available?</h1>
+    <%= form_for(@student) do |f| %>
+      <div class="field">
+        <%= f.label :crashable, "#{@student.crashable_type} Available?"%><br>
+        <%= f.check_box :crashable %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Update Availability" %>
+      </div>
     <% end %>
-  </ul>
-<% else %>
-  <p>No Potential crashes in your area! Invite your friends or search a new area!</p>
-<% end %>
+    <% if @unrated_crashes != [] %>
+      <h1>Unrated Crashes</h1>
+      <% @unrated_crashes.each do |crash| %>
+        <ul>
+          <li><%= crash.crasher.full_name %> crashed at your place on <%= crash.date.strftime('%x') %></li>
+          <li>They offered you the following: <%= crash.item_for_exchange %></li>
+          <li><%= link_to 'Click here to review this crash', new_review_path(crash: crash.id)%> </li>
+        </ul>
+      <% end %>
+    <% end %>
+  <% end %>
 
+  <h1>Places to stay in <%= @student.zip %></h1>
+  <% if @potential_crashes %>
+    <ul>
+      <% @potential_crashes.each do |host| %>
+        <li><%= host.first_name %> has a <%= host.crashable_type %> in <%= @student.zip %>! Click here to find out more!</li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No Potential crashes in your area! Invite your friends or search a new area!</p>
+  <% end %>
+  <h2>Search a different Zip Code</h2>
+  <%= form_for(@student) do |f| %>
+      <div class="field">
+        <%= f.label :zip, "Enter Zip Code below"%><br>
+        <%= f.number_field :zip %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Search" %>
+      </div>
+  <% end %>
+</div>
+<div class="right-panel">
+<%= render partial: "/crashes/crash_listings", locals: { crashes: @crashes, requested_crashes: @requested_crashes, hostings: @hostings, pending_hostings: @pending_hostings, errors: @errors } %>
+</div>
+<footer>
 <%= link_to 'Back', students_path %>
+</footer>

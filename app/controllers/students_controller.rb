@@ -10,6 +10,10 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    @crashes = Crash.where(crasher_id: current_user.id)
+    @requested_crashes = Crash.where(crasher_id: current_user.id, accepted: false)
+    @hostings = Crash.where(host_id: current_user.id, accepted: true)
+    @pending_hostings = Crash.where(host_id: current_user.id, accepted: false)
     if @student.is_host
       @unrated_crashes = @student.unreviewed_crashes
     elsif @student.is_crasher
