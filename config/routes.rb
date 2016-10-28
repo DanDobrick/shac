@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :students
   root to: "application#index"
 
-  devise_for :users, controllers: { confirmations: 'confirmations' }
+  devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations' }
 end

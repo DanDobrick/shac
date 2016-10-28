@@ -1,0 +1,107 @@
+<% if !pending_hostings.empty? %>
+  <h2>People Requesting To Crash With You</h2>
+  <p>Ready to host? Review these crashers who've requested to be your guest.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Crasher</th>
+        <th>Date</th>
+        <th>Crasher Offer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% pending_hostings.each do |hosting| %>
+        <tr>
+          <td><%= link_to hosting.crasher.full_name, crash_path(hosting) %></td>
+          <td><%= hosting.date %></td>
+          <td><%= hosting.item_for_exchange %></td>
+          <td><%= link_to 'Accept', crash_path(hosting, crash: {accepted: true}, :id => hosting.id), :method => :put %></td>
+          <td><%= link_to 'Decline', crash_path(hosting, crash: {accepted: false}, :id => hosting.id), :method => :put %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if !requested_crashes.empty? %>
+  <h2>Hosting Requests</h2>
+
+  <p>Hang tight. These crash requests have yet to be reviewed by their host.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Host</th>
+        <th>Date</th>
+        <th>Crasher Offer</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% requested_crashes.each do |crash| %>
+        <tr>
+          <td><%= link_to crash.host.full_name, crash_path(crash) %></td>
+          <td><%= crash.date %></td>
+          <td><%= crash.item_for_exchange %></td>
+          <td><%= link_to 'Cancel Request', crash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if !crashes.empty? %>
+  <h2>Your Crashes</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Host</th>
+        <th>Date</th>
+        <th>Your Exchange</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% crashes.each do |crash| %>
+        <tr>
+          <td><%= link_to crash.host.full_name, crash_path(crash) %></td>
+          <td><%= crash.date %></td>
+          <td><%= crash.item_for_exchange %></td>
+          <td><%= link_to 'Cancel Crash', crash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
+<% if !hostings.empty? %>
+
+  <h2>Your Hostings</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Crasher</th>
+        <th>Date</th>
+        <th>Crasher Offer</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% hostings.each do |hosting| %>
+        <tr>
+          <td><%= link_to hosting.crasher.full_name, crash_path(hosting) %></td>
+          <td><%= hosting.date %></td>
+          <td><%= hosting.item_for_exchange %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+ <% end %>
