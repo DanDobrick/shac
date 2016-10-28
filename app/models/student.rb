@@ -6,4 +6,11 @@ class Student < ActiveRecord::Base
   def full_name
     first_name + ' ' + last_name
   end
+
+  def unreviewed_crashes
+    crashes = self.hosted_crashes.map do |crash|
+      crash if crash.reviews.length == 0
+    end
+    crashes.compact
+  end
 end

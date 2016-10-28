@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     if @student.is_host
-      @unrated_crashes = @student.hosted_crashes
+      @unrated_crashes = @student.unreviewed_crashes
     elsif @student.is_crasher
     else
       sign_out(current_user)
