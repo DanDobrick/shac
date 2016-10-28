@@ -8,10 +8,6 @@ class CrashesController < ApplicationController
     @requested_crashes = Crash.where(crasher_id: current_user.id, accepted: false)
     @hostings = Crash.where(host_id: current_user.id, accepted: true)
     @pending_hostings = Crash.where(host_id: current_user.id, accepted: false)
-    p @crashes
-    p @requested_crashes
-    p @hostings
-    p @pending_hostings
   end
 
   # GET /crashes/1
