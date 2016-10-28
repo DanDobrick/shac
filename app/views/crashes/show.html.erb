@@ -12,13 +12,18 @@
 
 <p>
   <strong>Host:</strong>
-  <%= @crash.host_id %>
+  <%= @crash.host.full_name %> 
+  <% if @crash.host_id != current_user.id %>
+    (<%= link_to "View Profile", student_path(@crash.host) %>)
+  <% end %>
 </p>
 
 <p>
   <strong>Crasher:</strong>
-  <%= @crash.crasher_id %>
+  <%= @crash.crasher.full_name %> 
+  <% if @crash.crasher_id != current_user.id %>
+    (<%= link_to "View Profile", student_path(@crash.crasher) %>)
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_crash_path(@crash) %> |
 <%= link_to 'Back', crashes_path %>
