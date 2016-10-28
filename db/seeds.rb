@@ -11,3 +11,9 @@ crash2 = Crash.create!(date: Time.now, item_for_exchange: '$10 Starbucks Gift Ca
 
 crash3 = Crash.create!(date: Time.now, item_for_exchange: 'Walk your Dog', host_id: student3.id, crasher_id: student1.id, accepted: true)
 crash4 = Crash.create!(date: Time.now, item_for_exchange: 'Teach guitar lessons', host_id: student2.id, crasher_id: student3.id, accepted: true)
+
+crash5 = Crash.create!(date: Time.now, item_for_exchange: '$20 DBC Gift Card', host_id: student2.id, crasher_id: student1.id, accepted: true)
+crash6 = Crash.create!(date: Time.now, item_for_exchange: '$1 Starbucks Gift Card', host_id: student2.id, crasher_id: student1.id, accepted: false)
+
+crash7 = Crash.create!(date: Time.now, item_for_exchange: 'Walk your Cat', host_id: student3.id, crasher_id: student1.id, accepted: false)
+crash8 = Crash.create!(date: Time.now, item_for_exchange: 'Teach Geography lessons', host_id: student2.id, crasher_id: student3.id, accepted: false)
