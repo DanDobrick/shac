@@ -4,13 +4,14 @@
 
   <h1>Unrated Crashes</h1>
   <% @unrated_crashes.each do |crash| %>
-    <ul>
-      <li>Date: <%= crash.date %></li>
-      <li>Trade: <%= crash.item_for_exchange %></li>
-      <li>Host: <%= crash.host %></li>
-      <li>Crasher: <%= crash.crasher %></li>
+  <ul>
+    <li><%= crash.crasher.full_name %> crashed at your place on <%= crash.date.strftime('%x') %></li>
+    <li>They offered you the following: <%= crash.item_for_exchange %></li>
+    <li>Click here to review this crash:</li>
     </ul>
+
   <% end %>
+  
 <% end %>
 <!-- 
 <p>
@@ -48,5 +49,5 @@
   <%= @student.crashable? %>
 </p> -->
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
+ |
 <%= link_to 'Back', students_path %>
