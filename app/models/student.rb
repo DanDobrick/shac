@@ -3,8 +3,6 @@ class Student < ActiveRecord::Base
   has_many :hosted_crashes, class_name: 'Crash', foreign_key: :host_id
   has_many :crashes, foreign_key: :crasher_id
 
-  private
-
   def full_name
     first_name + ' ' + last_name
   end
