@@ -19,7 +19,7 @@
     <tbody>
       <% @pending_hostings.each do |hosting| %>
         <tr>
-          <td><%= hosting.crasher_id %></td>
+          <td><%= hosting.crasher.full_name %></td>
           <td><%= hosting.date %></td>
           <td><%= hosting.item_for_exchange %></td>
           <td><%= link_to 'Show', crash_path(hosting) %></td>
@@ -49,7 +49,7 @@
     <tbody>
       <% @requested_crashes.each do |crash| %>
         <tr>
-          <td><%= crash.host_id %></td>
+          <td><%= crash.host.full_name %></td>
           <td><%= crash.date %></td>
           <td><%= crash.item_for_exchange %></td>
           <td><%= link_to 'Show', crash_path(crash) %></td>
@@ -77,7 +77,7 @@
     <tbody>
       <% @crashes.each do |crash| %>
         <tr>
-          <td><%= crash.host_id %></td>
+          <td><%= crash.host.full_name %></td>
           <td><%= crash.date %></td>
           <td><%= crash.item_for_exchange %></td>
           <td><%= link_to 'Show', crash_path(crash) %></td>
@@ -88,11 +88,11 @@
     </tbody>
   </table>
 
-  <br>
 <% end %>
 
+<br>
 <%= link_to 'New Crash', new_crash_path %>
-
+<br>
 <% if !@hostings.empty? %>
 
   <h2>Your Hostings</h2>
@@ -110,7 +110,7 @@
     <tbody>
       <% @hostings.each do |hosting| %>
         <tr>
-          <td><%= hosting.crasher_id %></td>
+          <td><%= hosting.crasher.full_name %></td>
           <td><%= hosting.date %></td>
           <td><%= hosting.item_for_exchange %></td>
           <td><%= link_to 'Show', crash_path(hosting) %></td>
