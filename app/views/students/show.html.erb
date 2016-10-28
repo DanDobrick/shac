@@ -21,8 +21,7 @@
   <% end %>
 <% end %>
 
-<h1>Places to stay in your Area</h1>
-
+<h1>Places to stay in <%= @student.zip %></h1>
 <% if @potential_crashes %>
   <ul>
     <% @potential_crashes.each do |host| %>

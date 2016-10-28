@@ -36,6 +36,14 @@
     <%= f.label :school %><br>
     <%= f.text_field :school %>
   </div>
+  <div class="field">
+    <%= f.label :zip, "Zip Code where you usually Crash" %><br>
+    <%= f.number_field :zip %>
+  </div>
+    <div class="field">
+    <%= f.label :hosting_zip, "If you're a host, input the zipcode where you intend to host" %><br>
+    <%= f.number_field :hosting_zip %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

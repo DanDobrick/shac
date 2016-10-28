@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
     if @student.is_host
       @unrated_crashes = @student.unreviewed_crashes
     elsif @student.is_crasher
-      @potential_crashes = Student.where(zip: @student.zip, is_host: true)
+      @potential_crashes = Student.where(hosting_zip: @student.zip, is_host: true)
     else
       sign_out(current_user)
       redirect_to root_path
@@ -77,6 +77,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :devise_id, :is_crasher, :is_host, :school, :crashable)
+      params.require(:student).permit(:first_name, :last_name, :devise_id, :is_crasher, :is_host, :school, :crashable, :zip, :crashable_type)
     end
 end
