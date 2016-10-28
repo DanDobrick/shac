@@ -19,13 +19,11 @@
     <%= f.label :item_for_exchange %><br>
     <%= f.text_field :item_for_exchange %>
   </div>
-  <div class="field">
-    <%= f.label :host_id %><br>
-    <%= f.number_field :host_id %>
+  <div class="field">    
+    <%= f.hidden_field :host_id, value: @host.id %>
   </div>
   <div class="field">
-    <%= f.label :crasher_id %><br>
-    <%= f.number_field :crasher_id %>
+    <%= f.hidden_field :crasher_id, value: current_user.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
