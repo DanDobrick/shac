@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <% if @student.is_host %>
-  <h1>Is your <%= @student.crashable_type %> available?</h1>
+  <h3>Is your <%= @student.crashable_type %> available?</h3>
   <%= form_for(@student) do |f| %>
     <div class="field">
+      <%= f.check_box :crashable, class: "cyan accent-2" %>
       <%= f.label :crashable, "#{@student.crashable_type} Available?"%><br>
-      <%= f.check_box :crashable %>
     </div>
     <div class="actions">
-      <%= f.submit "Update Availability" %>
+      <%= f.submit "Update Availability", class: "cyan accent-2 waves-effect btn black-text" %>
     </div>
   <% end %>
-  <h1>Unrated Crashes</h1>
+  <h3>Unrated Crashes</h3>
   <% @unrated_crashes.each do |crash| %>
     <ul>
       <li><%= crash.crasher.full_name %> crashed at your place on <%= crash.date.strftime('%x') %></li>
