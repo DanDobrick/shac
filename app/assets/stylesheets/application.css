@@ -19,13 +19,3 @@
   margin: auto;
   padding: 3em;
 }
-.left-panel{
-  display: inline-block;
-  vertical-align: text-top;
-  width: 45%;
-}
-.right-panel{
-  display: inline-block;
-  vertical-align: text-top;
-  width: 45%;
-}
