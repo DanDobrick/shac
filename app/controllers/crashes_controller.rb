@@ -18,6 +18,7 @@ class CrashesController < ApplicationController
 
   # GET /crashes/new
   def new
+    @host = Student.find(params[:host_id])
     @crash = Crash.new
   end
 

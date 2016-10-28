@@ -27,7 +27,7 @@
   <% if @potential_crashes %>
     <ul>
       <% @potential_crashes.each do |host| %>
-        <li><%= host.first_name %> has a <%= host.crashable_type %> in <%= @student.zip %>! Click here to find out more!</li>
+        <li><%= host.first_name %> has a <%= host.crashable_type %> in <%= @student.zip %>! <%= link_to 'Click here to find out more!', new_crash_path(host_id: host.id) %></li>
       <% end %>
     </ul>
   <% else %>
