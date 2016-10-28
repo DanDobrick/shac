@@ -4,10 +4,11 @@ class CrashesController < ApplicationController
   # GET /crashes
   # GET /crashes.json
   def index
-    @crashes = Crash.where(crasher_id: current_user.id)
-    @requested_crashes = Crash.where(crasher_id: current_user.id, accepted: false)
-    @hostings = Crash.where(host_id: current_user.id, accepted: true)
-    @pending_hostings = Crash.where(host_id: current_user.id, accepted: false)
+    # @crashes = Crash.where(crasher_id: current_user.id)
+    # @requested_crashes = Crash.where(crasher_id: current_user.id, accepted: false)
+    # @hostings = Crash.where(host_id: current_user.id, accepted: true)
+    # @pending_hostings = Crash.where(host_id: current_user.id, accepted: false)
+    redirect_to current_user.student
   end
 
   # GET /crashes/1

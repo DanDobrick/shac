@@ -18,8 +18,8 @@
           <td><%= link_to hosting.crasher.full_name, crash_path(hosting) %></td>
           <td><%= hosting.date %></td>
           <td><%= hosting.item_for_exchange %></td>
-          <td><%= link_to 'Accept', crash_path(hosting, crash: {accepted: true}, :id => hosting.id), :method => :put %></td>
-          <td><%= link_to 'Decline', crash_path(hosting, crash: {accepted: false}, :id => hosting.id), :method => :put %></td>
+          <td><%= link_to 'Accept', crash_path(hosting, crash: {accepted: true}), :method => :put %></td>
+          <td><%= link_to 'Decline', crash_path(hosting, crash: {accepted: false}), :method => :put %></td>
         </tr>
       <% end %>
     </tbody>
