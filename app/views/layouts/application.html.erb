@@ -2,26 +2,56 @@
 <html>
 <head>
   <title>Shac</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
 
-<nav role="navigation">
-  <ul>
-    <li><a href='/'>Home</a></li>
-    <% if user_signed_in? %>
-      <% if current_user.student %>
-      <li><%= link_to('Dashboard', student_path(Student.find(current_user.student.id)))%></li>
-      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-      <li><%= link_to 'Edit Profile', edit_student_path(Student.find(current_user.student.id)) %></li>
-      <% end %>
+<nav role="navigation" class="cyan accent-2">
+  <ul id="slide-out" class="side-nav">
+
+
+    <% if !user_signed_in? || !current_user.student %>
+
+      <li><%= link_to 'Home', root_path, class: "waves-effect" %></li>
+      <li><%= link_to 'Register', new_user_registration_path, class: "waves-effect" %></li>
+      <li><%= link_to 'Login', new_user_session_path, class: "waves-effect" %></li>
+
     <% else %>
-      <li><%= link_to('Register', new_user_registration_path)%></li>
-      <li><%= link_to('Login', new_user_session_path)  %></li>
+
+      <li><div class="userView">
+        <a href="#!name"><span class="black-text name"><%= current_user.student.first_name + " " + current_user.student.last_name %></span></a>
+        <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
+      </div></li>
+
+      <li><%= link_to 'Dashboard', student_path(Student.find(current_user.student.id)), class: "waves-effect" %></li>
+      <li><div class="divider"></div></li>
+      <li><%= link_to 'Settings', '#', class: "waves-effect" %></li>
+      <li><%= link_to 'Inbox', '#', class: "waves-effect" %></li>
+      <li><%= link_to 'Hosting', '#', class: "waves-effect" %></li>
+      <li><div class="divider"></div></li>
+      <li><%= link_to 'Hosts', '#', class: "waves-effect" %></li>
+      <li><%= link_to 'Groups', '#', class: "waves-effect" %></li>
+      <li><%= link_to 'Events', '#', class: "waves-effect" %></li>
+      <li><div class="divider"></div></li>
+      <li><%= link_to 'Edit Profile', edit_student_path(Student.find(current_user.student.id)), class: "waves-effect" %></li>
+      <li><%= link_to 'My Friends', '#', class: "waves-effect" %></li>
+      <li><%= link_to 'My Events', '#', class: "waves-effect" %></li>
+      <li><%= link_to 'My Groups', '#', class: "waves-effect" %></li>
+      <li><div class="divider"></div></li>
+      <li><%= link_to 'Help', '#', class: "waves-effect" %></li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
     <% end %>
   </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse show-on-large cyan accent-2"><i class="large black-text material-icons">menu</i></a>
+
 </nav>
 
 
