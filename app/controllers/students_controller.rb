@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
     if @student.is_host
       @unrated_crashes = @student.unreviewed_crashes
     elsif @student.is_crasher
-      @potential_crashes = Student.where(hosting_zip: @student.zip, is_host: true)
+      @potential_crashes = Student.where(hosting_zip: @student.zip, is_host: true, crashable: true)
     else
       sign_out(current_user)
       redirect_to root_path

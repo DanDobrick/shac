@@ -22,14 +22,23 @@
 <% end %>
 
 <h1>Places to stay in <%= @student.zip %></h1>
+<%= form_for(@student) do |f| %>
+    <div class="field">
+      <%= f.label :zip, "Search a Different Zip"%><br>
+      <%= f.number_field :zip %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Search different zipcode" %>
+    </div>
+<% end %>
 <% if @potential_crashes %>
   <ul>
     <% @potential_crashes.each do |host| %>
-      <li><%= host.first_name %> has a <%= host.crashable_type %> for you to stay on</li>
+      <li><%= host.first_name %> has a <%= host.crashable_type %> in <%= @student.zip %>! Click here to find out more!</li>
     <% end %>
   </ul>
 <% else %>
-  <p>No Potential crashes in your area! Invite your friends!</p>
+  <p>No Potential crashes in your area! Invite your friends or search a new area!</p>
 <% end %>
 
 <%= link_to 'Back', students_path %>
