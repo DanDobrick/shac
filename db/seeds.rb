@@ -17,3 +17,9 @@ crash6 = Crash.create!(date: Time.now, item_for_exchange: '$1 Starbucks Gift Car
 
 crash7 = Crash.create!(date: Time.now, item_for_exchange: 'Walk your Cat', host_id: student3.id, crasher_id: student1.id, accepted: false)
 crash8 = Crash.create!(date: Time.now, item_for_exchange: 'Teach Geography lessons', host_id: student2.id, crasher_id: student3.id, accepted: false)
+
+crashes = Crash.all
+
+crashes.each do |crash|
+  Review.create!(crash_id: crash.id, reviewer_id: crash.host_id, reviewee_id: crash.crasher_id, review_text: "It was great", rating: rand(1..5))
+end
