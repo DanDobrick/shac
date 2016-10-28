@@ -63,7 +63,7 @@ class CrashesController < ApplicationController
   def destroy
     @crash.destroy
     respond_to do |format|
-      format.html { redirect_to crashes_url, notice: 'Crash was successfully destroyed.' }
+      format.html { redirect_to crashes_url, notice: 'Your request was successfully canceled.' }
       format.json { head :no_content }
     end
   end
