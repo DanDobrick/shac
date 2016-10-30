@@ -11,7 +11,7 @@ A web-app to help students connect and sleep closer to campus. Only those with a
 
 ##How to install
 1. Ensure you have [Ruby](https://github.com/ruby/ruby#how-to-get-ruby) installed.
-2. Install rails ( `gem install rails` ) and bundler ( `gem install bundler` ).
+2. Install [rails](https://github.com/rails/rails) ( `gem install rails` ) and [bundler](https://github.com/bundler/bundler) ( `gem install bundler` ).
 3. Clone the repository using `git clone https://github.com/DanDobrick/shac.git`.
 4. Install Dependencies: `bundle install`.
 5. Setup Database: first run `bundle exec rake db:create` next run `bundle exec rake db:migrate`, and optionally seed using `bundle exec rake db:seed`.
