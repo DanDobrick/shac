@@ -1,5 +1,7 @@
 #Shac
-A web-app to help students connect and sleep closer to campus; built in one day for a hackathon.
+Entire site built in 24 hours for a contest put on by [Shac](http://www.shac.io); this entry won first place.
+
+A web-app to help students connect and sleep closer to campus. Only those with a .edu email address can sign up, then students can choose to host other students or "crash" at a host's house/apartment/dorm. The "crasher" can offer to exchange things such as walking the host's dog or buying the host coffee as a thank-you for allowing them to stay.
 
 ##An app by:
 - [Dan Dobrick](https://github.com/DanDobrick)
@@ -18,23 +20,7 @@ A web-app to help students connect and sleep closer to campus; built in one day 
 ##Screenshots
 ###Home Page
 ![Home Page](/screenshots/home.png?raw=true "Home Page")
-###User Page
-![User Page](/screenshots/user.png?raw=true "User Page")
-###How it works
-![How It Works](/screenshots/how.png?raw=true "How It Works")
-###Choosing an Account
-![Choose Your Bank](/screenshots/choose-bank.png?raw=true "Choose Your Bank")
-###Connected Account
-![Connected Account](/screenshots/chase-connected.png?raw=true "Connected Account")
-
-##Code Status
-[![Build Status](https://travis-ci.org/DanDobrick/spare-change.svg?branch=master)](https://travis-ci.org/DanDobrick/spare-change)
-
-##Technologies used
-- [Ruby on Rails](https://github.com/rails/rails)
-- [JavaScript](https://www.javascript.com/)
-- [Typeahead.js](https://twitter.github.io/typeahead.js/)
-- [Plaid](https://plaid.com/)
-- [Stripe](https://stripe.com/)
-- [Make My Donation](http://makemydonation.org/)
-- [Org Hunter](http://orghunter.com/)
+###Mobile View
+![Mobile View](/screenshots/mobile-home.png?raw=true "Mobile View")
+###Menu
+![Menu Bar](/screenshots/menu.png?raw=true "Menu")
