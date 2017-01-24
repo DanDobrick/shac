@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth'
+  # devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations' }
+  
   resources :crashes
   resources :reviews
   resources :students
@@ -6,5 +9,4 @@ Rails.application.routes.draw do
 
   get '/students/:id/info', to: 'students#info', as: 'student_info'
 
-  devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations' }
 end

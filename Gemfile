@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+gem 'devise_token_auth'
 
 gem 'rails-api'
 gem 'active_model_serializers', '~> 0.10.0'
